@@ -1,0 +1,160 @@
+%
+% Elizabeth Wilcox
+% MAT 373: Number Theory
+%
+\documentclass[11 pt]{article}
+
+%  packages
+\usepackage{amssymb, amsmath, amsthm, enumerate, graphicx, multirow, float, color}
+\usepackage{tikz, enumitem}
+\usetikzlibrary{arrows}
+
+%  margins
+\textwidth = 6.5 in 
+\textheight = 9 in 
+\oddsidemargin = 0.0 in 
+\evensidemargin = 0.0 in 
+\topmargin = 0.0 in 
+\headheight = 0.0 in 
+\headsep = 0.0 in 
+
+%  theorems, corollaries, etc.
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem{dfn}[thm]{Definition}
+
+\renewcommand{\qedsymbol}{\vrule height 5pt width 4pt depth -1pt}
+%\renewcommand{\theenumi}{\Alph{enumi}}                       
+
+
+% spacing shortcuts
+\def\skip{\vspace{10 pt}}
+\def\medskip{\vspace{15 pt}}
+
+% text shortcuts
+\def\ie{{i.e.,}\ }
+\def\eg{{e.g.,}\ }
+\def\bbar#1{\overline{#1}}
+
+%  set shortcuts
+\def\QQ{\mathbb{Q}}
+\def\ZZ{\mathbb{Z}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+\def\NN{\mathbb{N}}
+
+% number theory shortcuts
+\def\divides{\big |}
+\def\gcd#1#2{\textrm{gcd}({#1},{#2})}
+\def\ord#1{|{#1}|}
+
+% logic shortcuts
+\def\iff{\Leftrightarrow}
+\thispagestyle{empty}
+\begin{document}
+
+\centerline{\bf Math 373  \hfill HW \#2}
+\centerline{\bf NAME: Chaskin Saroff\hfill DUE: Wed. 2/11}
+
+
+\
+
+\noindent
+{\bf Latex Exercises}: Type up your solutions to \#3 using latex.
+
+\begin{enumerate}
+\item For each of the following, use the Euclidean Algorithm to find $\gcd a b$ and determine $x, y \in \ZZ$ such that $\gcd a b = ax + by$:
+%
+$$
+a = 7700, b = 2233; a = 455, b = 1235; 
+$$
+%
+Show your work -- not just the answer.
+
+\item In each of the following, apply the Division Algorithm to find $q$ and $r$ such that $a = bq + r$ and $0 \leq r \leq \ord b$:
+%
+$$
+a = 300, b = 17; a = 729, b = 31; a = 300, b = -17; a = 389, b = 4.
+$$
+
+\pagebreak%------------------------------------------------------------------------------------------------------------------------
+\item Let $a, b, c \in \ZZ$.  
+	\begin{enumerate}
+	\item 
+        \begin{proof} If $a \divides b$ and $c \divides d$, then $ac \divides bd$\\
+            Let $a,b,c,d \in \ZZ$.\\
+            Let $a \divides b$\\
+            Let $c \divides d$\\
+            $\implies b = ax$ for some $x \in \ZZ$ by definition of divides.\\
+            $\implies d = cy$ for some $y \in \ZZ$ by definition of divides.\\
+            $\implies bd = axcy$ for some $x,y \in \ZZ$ by definition of divides.\\
+            $\implies bd = (ac)xy$ for some $x,y \in \ZZ$ by definition of divides.\\
+            Let $z=xy$\\
+            Then $z \in \ZZ$ by closure of $\ZZ$ under $*$\\
+            $\implies bd=ac(z)$\\
+            Therefore $ac \divides bd$ by definition of divides.
+        \end{proof}
+        \pagebreak%------------------------------------------------------------------------------------------------------------
+        \item 
+        \begin{proof} $b \divides a$ if and only if $\gcd a b = \ord b$.\\
+                Recall the gcd condition.\\
+                $gcd(a,b)=d$ if and only if all of the following are true:\\
+
+                \begin{enumerate}[label=(\alph*)]
+                    \item $d>0$
+                    \item $d \divides a$
+                    \item $d \divides b$
+                    \item $m \divides d$ for all common divisors, m, of a and b.
+                \end{enumerate}
+            \begin{enumerate}
+                \item We will first show that $b \divides a \implies gcd(a,b)=\ord b$\\
+                    Let $a,b \in \ZZ$\\
+                    Let $b|a$\\
+                    $b \neq 0$ because $0 \divides n$ is false $\forall n \in \ZZ$\\
+                    (a) Since $b \in \ZZ$ and $b \neq 0$, $\ord b > 0 \checkmark$\\
+                    \\
+                    $b \divides a \implies a=bc$ for some $c \in \ZZ$ by definition of divides.\\
+                    Then $a = (-b)(-c)$.\\
+                    (b) $\ord b \divides a \checkmark$\\
+                    \\
+                    To show $\ord b \divides b$:\\
+                    $b = b(1)$ and $b = (-b)(-1)$\\
+                    (c) $\ord b \divides b$ by definition of divides. $\checkmark$\\
+                    \\
+                    (d) Since $\ord b$ is the greatest divisor of b and $\ord b$ is a common divisor of a and b,\\
+                        then $\ord b = gcd(a,b) \checkmark$\\
+                    \item Let $gcd(a,b) = \ord b$.
+                        Then $\ord b \divides a \implies b \neq 0$\\
+                        $a = \ord b (c)$ for some $c \in \ZZ$\\
+                        Case 1. $b > 0$\\
+                            $a = bc$.\\
+                        Case 2. $b < 0$.\\
+                            $a = b(-c)$.\\
+                        in either case, $b \divides a$ by definition.\\
+                        Then $\ord b \divides a$ by definition.
+            \end {enumerate}
+            Therefore $b \divides a$ if and only if $gcd(a,b)= \ord b$
+        \end{proof}
+    \pagebreak%--------------------------------------------------------------------------------------------------------------------
+	\item Show that if $c > 0$ then $\gcd {ac}{bc} = c (\gcd a b)$.
+        \begin{proof}
+        \end{proof}
+	\end{enumerate}
+    \pagebreak%--------------------------------------------------------------------------------------------------------------------
+
+\item {\bf (Sage.)} Assume that $m, n \in \NN$.  Recall the Fibonacci numbers $f_n$ from the first homework.
+	\begin{enumerate}
+	\item Using Sage's built-in command for the greatest common divisor, write a program that will take an input $c \geq 1$ and then compute $\gcd {f_n}{f_m}$ for all $n, m$ such that $1 \leq n < m \leq c$.  It's ok to use the command \textcolor{blue}{fibonacci(n)}, which computes $f_n$.
+	\item Print out the greatest common divisors between all pairs of Fibonacci numbers $f_n$, $f_m$ with $1 \leq n < m \leq 50$.  Do you notice any patterns?  Make two reasonable, meaningful conjectures regarding the greatest common divisors.  For example, can you make a conjecture about $\gcd {f_n}{f_{n+1}}$?  
+	\item[]
+	\item[] Can you prove your conjectures? Try!
+	\end{enumerate}
+	
+\end{enumerate}
+\end{document}

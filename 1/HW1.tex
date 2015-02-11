@@ -1,0 +1,230 @@
+%
+% Elizabeth Wilcox
+% MAT 373: Number Theory
+%
+\documentclass[11 pt]{article}
+
+%  packages
+\usepackage{amssymb, amsmath, amsthm, enumerate, graphicx, multirow, float, color}
+\usepackage{tikz}
+\usepackage{pifont}
+\usetikzlibrary{arrows}
+%  margins
+\textwidth = 6.5 in 
+\textheight = 9 in 
+\oddsidemargin = 0.0 in 
+\evensidemargin = 0.0 in 
+\topmargin = 0.0 in 
+\headheight = 0.0 in 
+\headsep = 0.0 in 
+
+%  theorems, corollaries, etc.
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem{dfn}[thm]{Definition}
+
+\renewcommand{\qedsymbol}{\vrule height 5pt width 4pt depth -1pt}
+
+
+% spacing shortcuts
+\def\skip{\vspace{10 pt}}
+\def\medskip{\vspace{15 pt}}
+
+% text shortcuts
+\def\ie{{i.e.,}\ }
+\def\eg{{e.g.,}\ }
+\def\bbar#1{\overline{#1}}
+
+%  set shortcuts
+\def\QQ{\mathbb{Q}}
+\def\ZZ{\mathbb{Z}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+\def\NN{\mathbb{N}}
+
+% number theory shortcuts
+\def\divides{\big |}
+
+% logic shortcuts
+\def\iff{\Leftrightarrow}
+\thispagestyle{empty}
+\begin{document}
+
+\centerline{\bf Math 373  \hfill HW \#1}
+\centerline{\bf Name: Chaskin Saroff \hfill Due: Wed. 2/4}
+
+\begin{enumerate}
+\item The {\it Fibonacci numbers $f_n$} are given by the recurrence
+%
+$$
+f_0 = 0, f_1 = 1, f_{n+1} = f_{n-1} + f_n \textrm{ for all } n \geq 2.
+$$
+%
+The first few Fibonacci numbers are: $0, 1, 1, 2, 3, 5, 8, 13, \dots$  
+	\begin{enumerate}
+	\item Prove that $\sum\limits_{i = 1}^n f_i = f_{n+2} - 1$ for all $n \geq 1$.
+        
+        \begin{proof}
+
+            \
+
+            Base Case:\\
+            Let $n=1$. \\
+            \begin{align} 
+                \sum\limits_{i = 1}^1 f_i &= f_{1} = 1 \\
+                                            &= 2-1 \\
+                                            &=f_{n+2} - 1 \checkmark
+            \end{align}
+            Inductive Step: \\
+            Let P($n$) be the statement $\sum\limits_{i = 1}^n f_i = f_{n+2} - 1$\\
+            Assume P($n$) (We will show P($n+1$)).
+            \begin{align}
+                         &\sum\limits_{i = 1}^n f_i = f_{n+2} - 1 \\
+                \implies &\sum\limits_{i = 1}^n f_i + f_{n+3} = f_{n+2} + f_{n+3} - 1 \\
+                \implies &\sum\limits_{i = 1}^n f_i + (f_{n+1} + f_{n+2}) - f_{n+2} = f_{n+3} - 1 \\
+                \implies &\sum\limits_{i = 1}^{n+1} f_i = f_{n+3} - 1 \\
+                \implies & P(n+1) \text{ is true.} 
+            \end{align}
+            Therefore $\sum\limits_{i = 1}^n f_i = f_{n+2} - 1$ for all $n \in \ZZ^+$.
+        \end{proof}
+        \pagebreak%---------------------------------------------------------------------------------
+
+	\item Prove that $\sum\limits_{i=1}^n f_i^2 = f_nf_{n+1}$ for all positive integers $n$.
+        
+        \begin{proof}
+
+            \
+
+            Base Case:\\
+            Let $n=1$. \\
+            \begin{align} \setcounter{equation}{0}
+                \sum\limits_{i=1}^1 f_{i}^2 &= f_i^2\\
+                                          &= 1^2\\
+                                          &= 1 \times 1\\
+                                          &= f_1 f_2 \checkmark
+            \end{align}%End Base Case
+
+            Inductive Step: \\
+            Let P($n$) be the statement $\sum\limits_{i=1}^n f_i^2 = f_n f_{n+1}$\\
+            Assume P($n$) (We will show P($n+1$)).
+            \begin{align}
+                &\sum\limits_{i=1}^n f_{i}^2 = f_nf_{n+1}\\
+                \implies &\sum\limits_{i=1}^n f_i^2 + f_{n+1}^2 = f_nf_{n+1}+f_{n+1}^2\\
+                \implies &\sum\limits_{i=1}^{n+1} f_i^2 = f_{n+1}(f_n+f_{n+1})\\
+                \implies &\sum\limits_{i=1}^{n+1} f_i^2 = f_{n+1}f_{n+2}\\
+                \implies & P(n+1) \text{ is true.}
+            \end{align}
+            Therefore $\sum\limits_{i=1}^n f_i^2 = f_nf_{n+1}$ for all $n \in \ZZ^+$
+        \end{proof}
+	\end{enumerate}
+\pagebreak%-----------------------------------------------------------------------------------
+\item Prove that $2^{2n-1} + 1$ is divisible by 3 for every positive integer $n$.\\
+        ie. Prove that $2^{2n-1} + 1 = 3x$ for some $x \in \ZZ$ 
+        \begin{proof}
+
+            \
+
+            Base Case:\\
+            Let $n=1$. \\
+            \begin{align} \setcounter{equation}{0}
+                2^{2n-1}+1 &= 2^{2(1)-1}+1\\
+                           &= 2+1\\
+                           &= 3(1) \checkmark
+            \end{align}%End Base Case
+
+            Inductive Step: \\
+            Let P($n$) be the statement $2^{2n-1} + 1 = 3x$ for some $x \in \ZZ$\\
+            Assume P($n$) (We will show P($n+1$)).
+            \begin{align}
+                &2^{2n-1} + 1 = 3x\\
+                \implies &2^2(2^{2n-1}) + 1 = 2^2(3x)\\
+                \implies &2^{2n-1+2}+2^2 = 2^2(3x)\\
+                \implies &2^{2n+2-1}+2^2 -3 = 2^2(3x) -3\\
+                \implies &2^{2(n+1)-1}+1 = 4(3)x-3\\
+                \implies &2^{2(n+1)-1}+1 = 3(4x-1)\\
+                         & \text{Let $y=4x-1$.}\\
+                \implies & \text{$y \in \ZZ$ (by the closure of $\ZZ$ under $+,*$.)}\\
+                \implies &2^{2(n+1)-1}+1 = 3(y)\\
+                \implies & P(n+1) \text{ is true.}
+            \end{align}%End Inductive Step
+            Therefore $2^{2n-1} + 1$ is divisible be 3 for every $n \in \ZZ$ by definition of divides
+        \end{proof}
+        \pagebreak%---------------------------------------------------------------------------
+
+\item Let $a, b, c \in \ZZ$.  Prove: If $a \divides b$ and $a + b = c$ then $a \divides c$.
+    \begin{proof}
+        \begin{align} \setcounter{equation}{0}
+            &\text{Let $a,b,c \in \ZZ$.}\\\notag
+            &\text{Let $a|b$ be true}\\\notag
+            &\text{Let $a+b=c$ }\\\notag
+            \implies &b=ax \text{ for some $x \in \ZZ$}\\
+            \implies &a+ax=c\\
+            \implies &a(1+x)=c\\
+                     &\text{let $y=1+x$}\\
+            \implies &\text{$y \in \ZZ$ by closure of $\ZZ$ under $+$}\\
+            \implies &a(y) = c
+        \end{align}
+        Therefore $a|c$ by definition of divides.
+    \end{proof}
+    \pagebreak%-------------------------------------------------------------------------------
+\item Let $n \in \ZZ$ be such that $5 \divides (n + 2)$.  Which of the following expressions are divisible by 5?
+%
+$$
+n^2 - 4, n^2 + 8n + 7, n^4 - 1, n^2 - 2n
+$$
+%   
+    Let's consider what it means for $5$ to divide $(n+2)$
+    \begin{align*}
+        &n+2=5x \text{ for some $x \in \ZZ$ (by definition of divides.)}\\
+        \implies  &n=5x-2
+    \end{align*}
+
+    \begin{align} \setcounter{equation}{0}
+        n^2 -4 &= (5x-2)^2-4\\
+               &= 25x^2-10x+4-4\\
+               &= 5(5x-2)\checkmark
+    \end{align}
+    Five divides $n^2-4$ because $n^2-4$ is equal to 5 times an integer.
+    \begin{align} \setcounter{equation}{0}
+        n^2+8n+7 &= (5x-2)^2+8(5x-2)+7\\
+                 &= 25x^2-10x+4+40x-16+7\\
+                 &= 25x^2+30x-5\\
+                 &= 5(5x^2+6x-1)\checkmark
+    \end{align}
+    $n^2+8n-7$ is also divisible by 5.
+    \begin{align} \setcounter{equation}{0}
+        n^4-1 &= [n^2+1][n^2-1]\\
+              &= [(5x-2)^2+1][(5x-2)^2-1]\\
+              &= [25x^2-10x+5][(5x-2)^2-1]\\
+              &= 5[5x^2-2x+1][(5x-2)^2-1]\checkmark
+    \end{align}
+    $n^4-1$ is divisible by 5.
+    \begin{align} \setcounter{equation}{0}
+               &\text{let $n=3$}\\
+               &\text{then $5\divides(3+2)$}\\
+        n^2-2n &= 3^2-2(3)\\
+               &= 9-6\\
+               &=3 \text{ \ding{55}}
+    \end{align}
+    but $n^2-2n$ is not divisible by $5$ for $n=1$
+
+    \pagebreak%-------------------------------------------------------------------------------
+
+
+\item Let $n \in \NN$. Prove or disprove, and salvage: A product of $n$ or more \emph{unique consecutive} integers is divisible by $n$.
+    
+\item {\bf (Sage.)} Assume that $a, b \in \NN$.
+	\begin{enumerate}
+	\item Write a program to determine if $a$ divides $b$.  You cannot use the built-in functions for modular arithmetic or division; these built-in function relies on a program like what you're trying to write!
+	\item Write a program that lists positive divisors of $b$ and determines if $b$ is perfect, deficient, or abundant.  You may use either the program in (a) or Sage's built-in commands \textcolor{blue}{x.divides(y)} or \textcolor{blue}{mod(x,y)} -- but not the Sage command for listing divisors or for the sum of divisors.
+	\end{enumerate}
+
+
+\end{enumerate}
+\end{document}
