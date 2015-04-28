@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{WinNT}
+{MS Windows NT} kernel description.
+\newblock
+  \url{http://web.archive.org/web/20080207010024/http://www.808multimedia.com/winnt/kernel.htm}.
+\newblock Accessed: 2010-09-30.
+
+\bibitem{CD}
+A.~Chermak and A.~Delgado.
+\newblock {A measuring argument for finite groups}.
+\newblock {\em Proc. AMS}, 107(4):907 -- 914, 1989.
+
+\bibitem{GAP4}
+The GAP~Group.
+\newblock {\em {GAP -- Groups, Algorithms, and Programming, Version 4.7.5}},
+  2014.
+
+\bibitem{Huppert}
+B.~Huppert.
+\newblock {\em {Endliche Gruppen I}}.
+\newblock Springer-Verlag, 1967.
+
+\end{thebibliography}

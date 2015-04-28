@@ -1,0 +1,127 @@
+%
+% Elizabeth Wilcox
+% MAT 373: Number Theory
+%
+\documentclass[11 pt]{article}
+
+%  packages
+\usepackage{amssymb, amsmath, amsthm, enumerate, graphicx, multirow, float, color}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+%  margins
+\textwidth = 6.5 in 
+\textheight = 9 in 
+\oddsidemargin = 0.0 in 
+\evensidemargin = 0.0 in 
+\topmargin = 0.0 in 
+\headheight = 0.0 in 
+\headsep = 0.0 in 
+
+%  theorems, corollaries, etc.
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem{dfn}[thm]{Definition}
+
+\renewcommand{\qedsymbol}{\vrule height 5pt width 4pt depth -1pt}
+
+
+% spacing shortcuts
+\def\skip{\vspace{10 pt}}
+\def\medskip{\vspace{15 pt}}
+
+% text shortcuts
+\def\ie{{i.e.,}\ }
+\def\eg{{e.g.,}\ }
+\def\bbar#1{\overline{#1}}
+
+%  set shortcuts
+\def\QQ{\mathbb{Q}}
+\def\ZZ{\mathbb{Z}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+\def\NN{\mathbb{N}}
+
+% number theory shortcuts
+\def\divides{\big |}
+\def\gcd#1#2{\textrm{gcd}({#1},{#2})}
+\def\ord#1{|{#1}|}
+
+% logic shortcuts
+\def\iff{\Leftrightarrow}
+\thispagestyle{empty}
+\begin{document}
+
+\centerline{\bf Math 373  \hfill HW \#7}
+\centerline{\bf NAME: \hfill Mon. 4/27}
+
+\
+
+\noindent
+Show your work.  You may only use Sage on \#6 and \#7, and to compute multiplicative inverses when needed in earlier exercises.  
+
+\begin{enumerate}
+\item Provide all integer solutions to each system of linear congruences.
+	\begin{enumerate}
+	\item $
+\begin{array}{rcl}
+x \equiv & 2 & \textrm{ mod } 3\\
+x \equiv & 3 & \textrm{ mod } 5\\
+x \equiv & 2 & \textrm{ mod } 7\\
+\end{array}
+$
+%
+	\item $2837x \equiv 1601$ mod $1710$
+	\end{enumerate}
+
+\item Give all solutions to the Diophantine linear equation $2261x + 1275y = 17$.
+
+\item For each $11$ and $13$, find all least residue which are also quadratic residues.
+
+\item Where possible, solve the quadratic equation.  Use the Quadratic Formula.
+	\begin{enumerate}
+	\item $7x^2 -4x + 1 \equiv 0$ mod $11$
+	\item $7x^2 - 4x + 2 \equiv 0$ mod $11$
+	\end{enumerate}
+	
+\item Determine the ``quadratic character'' (\ie Legendre symbol) of each of $n = 3$, $n = 5$, and $n = 7$ for $p = 379$, $p = 307$, and $p = 289$.  This means you are making 9 calculations.
+
+\item {\bf Do one option.}
+
+\item[] {\bf Sage Exercise: Option 1.}  Write a program in Sage that takes in a positive integer $n$ and a prime $p$, and computes $\left( \frac{n}{p} \right)$  You may not use Sage's built-in program that does this calculation, but your program need not be as efficient as Sage's.  Is the program that you've written something that can be altered to also produce the square roots of $n$ modulo $p$, if they exist?  
+
+\item[] {\bf Sage Exercise: Option 2.} Write a program in Sage that has two inputs, a positive integer $a$ and a prime $p$, and produces the residues of $a$, $2a$, $3a$, \dots , $\left( \frac{p-1}{2} \right) a$ modulo $p$ which are in the interval $\left( -\frac{p-1}{2}, \frac{p-1}{2} \right)$.  Use your program to examine several examples and create a conjecture about the values in this list.  
+
+\item {\bf Latex Exercise.} Write 2 challenging, yet interesting, homework problems for a future MAT 373 class.  Type up both the problems and their solutions. One problem should involve a proof and one problem should be more computational.  These problems can be related to any topic that we've covered thus far, but should not be ridiculously easy, hard, or time-consuming.  Think like a student -- you don't want a 3-hour long problem!  Or one that is impossible to answer!  But also think like an instructor -- you want to challenge your students and encourage creative thinking.
+    \begin{enumerate}
+        \item{}
+            Find a set of primes, $\{p,q,r,s\}$ such that $pq-rs=1$.
+            \\Let $p=3$, $q=5$, $r=2$, $q=7$
+            \\$$3(5)-2(7)=15-14=1$$
+        \item{}
+            Show that this equation has no solution if none of $p,q,r,s=2$
+            \begin{proof}
+                Let $p,q,r,s$ be odd primes.
+                \\Note that an odd number times an odd number is equal to an odd number.
+                $$(2n+1)(2n+1)=2nm+2n+2m+1=2(nm+n+m)+1$$
+                \\So $pq$ must be odd and also $rs$ must be odd.
+                \\Also note that the difference between two odd numbers must be even.
+                $$(2n+1)-(2m+1)=2n+1-2m-1=2n-2m=2(n-m)$$
+                \\But $pq-rs$ is the difference between two odd numbers and 1 is not odd.
+                \\i.e $pq-rs=2x$ for some integer $x$, but there exists no integer $x$
+                such that $2x = 1$
+                \\Therefore, there exists no set of odd primes $\{p,q,r,s\}$ such that $pq-rs=1$
+            \end{proof}
+
+
+    \end{enumerate}
+
+
+\end{enumerate}
+\end{document}
